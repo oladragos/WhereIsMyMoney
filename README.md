@@ -1,0 +1,2 @@
+# WhereIsMyMoney
+ an expenses manager
