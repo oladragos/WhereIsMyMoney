@@ -1,0 +1,38 @@
+.product {
+  /* margin: 2rem; */
+  padding: 2rem 3.5rem;
+  background-color: var(--color-dark--1);
+  min-height: 100vh;
+  color: var(--color-light--2);
+}
+
+@media (max-width: 500px) {
+  .product {
+    padding: 10px 10px;
+  }
+}
+
+.product section {
+  margin: 6rem auto;
+  gap: 7rem;
+  align-items: center;
+}
+
+.product h2 {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+}
+
+.product p {
+  font-size: 1rem;
+}
+
+.description {
+  margin-bottom: 2rem;
+  text-align: justify;
+}
+
+.product section a {
+  margin-top: 2rem;
+}

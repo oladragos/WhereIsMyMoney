@@ -1,0 +1,35 @@
+.nav a:link,
+.nav a:visited {
+  text-decoration: none;
+  color: var(--color-light--2);
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit !important;
+}
+
+/* CSS Modules feature */
+.nav a:global(.active) {
+  color: var(--color-brand--2) !important;
+}
+
+a.ctaLink:link,
+a.ctaLink:visited {
+  background-color: var(--color-brand--2);
+  color: var(--color-dark--0) !important;
+  padding: 0.9rem 2rem;
+  border-radius: 5px;
+}
+
+.logoutLink {
+  background-color: var(--color-logout--1);
+  color: var(--color-dark--0) !important;
+  padding: 0.9rem 2rem;
+  border-radius: 5px;
+}
+
+@media (max-width: 450px) {
+  .nav img {
+    display: none;
+  }
+}

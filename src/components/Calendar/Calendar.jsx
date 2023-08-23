@@ -1,0 +1,92 @@
+// import * as React from "react";
+import { useEffect, useState } from "react";
+import dayjs from "dayjs";
+import isBetweenPlugin from "dayjs/plugin/isBetween";
+import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import Day from "../DayItem/DayItem";
+import { useDispatch } from "react-redux";
+import { storeStats } from "../../features/stats";
+
+dayjs.extend(isBetweenPlugin);
+
+export default function Calendar() {
+  const [value, setValue] = useState(dayjs());
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(storeStats({ isStats: false, timestamp: 0 }));
+    // eslint-disable-next-line
+  }, []);
+
+  return (
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <DateCalendar
+        sx={{
+          "&.MuiDateCalendar-root": {
+            width: "90%",
+            height: "65%",
+            maxHeight: "35rem",
+            backgroundColor: "var(--color-brand--3)",
+            borderRadius: "5px",
+            overflowY: { xs: "scroll" },
+            overflowX: { xs: "scroll" },
+          },
+          "& .MuiPickersCalendarHeader-root": { mt: 3.1, mb: 3.8, ml: 1.3 },
+          "& .MuiPickersCalendarHeader-labelContainer": {
+            color: "var(--color-dark--1)",
+            fontSize: "1.3rem",
+            fontWeight: "600",
+          },
+          //! .MuiPickersMonth-monthButton this one was also on the next obj
+          "& .MuiYearCalendar-root": {
+            width: "96%",
+            maxHeight: "400px",
+          },
+
+          "& .MuiPickersYear-root": {
+            mb: 1.3,
+          },
+          "& .MuiPickersYear-yearButton": {
+            color: "var(--color-dark--1)",
+            fontSize: "1.3rem",
+          },
+          "& .MuiPickersYear-yearButton:hover": {
+            backgroundColor: "var(--color-hover--1)",
+          },
+          "& .MuiDayCalendar-weekDayLabel": {
+            width: "65px",
+            color: "rgb(128, 17, 17)",
+            fontSize: "1.3rem",
+            fontWeight: "700",
+          },
+          "& .MuiPickersDay-root": {
+            width: { xs: "65px", sm: "65px" },
+            height: "60px",
+            fontSize: "1.3rem",
+            color: "var(--color-dark--1)",
+          },
+          "& .MuiPickersDay-root:hover": {
+            backgroundColor: "var(--color-hover--2)",
+          },
+
+          "& .MuiButtonBase-root.MuiPickersDay-root.Mui-selected, & .Mui-selected":
+            {
+              backgroundColor: "var(--color-selected--1)",
+            },
+        }}
+        showDaysOutsideCurrentMonth
+        fixedWeekNumber={6}
+        value={value}
+        onChange={(newValue) => setValue(newValue)}
+        slots={{ day: Day }}
+        slotProps={{
+          day: {
+            selectedDay: value,
+          },
+        }}
+      />
+    </LocalizationProvider>
+  );
+}
