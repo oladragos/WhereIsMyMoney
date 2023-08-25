@@ -7,6 +7,7 @@ import { expensesCategories } from "../../utils/expense";
 import { useSelector } from "react-redux";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
+import { muiTheme } from "../../utils/muiTheme";
 
 const BASE_URL =
   "https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies";
@@ -81,7 +82,11 @@ export default function ExpenseForm({ expenseAdded, setExpanseAdded }) {
     <form className={styles.form}>
       <div className={styles.row}>
         <label>Select a category</label>
-        {category === "" && <p>Please select a category first!</p>}
+        {category === "" && (
+          <p className={styles.warningMessage}>
+            Please select a category first!
+          </p>
+        )}
         <select onChange={(e) => setCategory(e.target.value)} value={category}>
           <option value="">...</option>
           {expensesCategories.map((expense) => (
@@ -131,15 +136,19 @@ export default function ExpenseForm({ expenseAdded, setExpanseAdded }) {
               sx={{
                 backgroundColor: "var(--color-light--3)",
                 borderRadius: "5px",
-                fontFamily: "inherit",
-
                 width: "100%",
                 "& + .MuiAutocomplete-popper .MuiAutocomplete-option": {
                   backgroundColor: "var(--color-light--3)",
                 },
+                "& .MuiOutlinedInput-root.MuiInputBase-sizeSmall": {
+                  [muiTheme.breakpoints.down("xxs")]: {
+                    padding: "3px 6px 3px 6px",
+                  },
+                },
                 "& + .MuiAutocomplete-popper .MuiAutocomplete-option[aria-selected='true']":
                   {
                     backgroundColor: "var(--color-light--3)",
+                    padding: 0,
                   },
                 // "& + .MuiAutocomplete-popper .MuiAutocomplete-option[aria-selected ='true'].Mui-focused":
                 //   {

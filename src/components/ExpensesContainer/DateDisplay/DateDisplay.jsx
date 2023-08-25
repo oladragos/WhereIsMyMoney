@@ -14,8 +14,8 @@ export default function DateDisplay() {
     <div>
       <p>
         {date === "Invalid Date"
-          ? new Date().toLocaleDateString(undefined, options)
-          : date}
+          ? `Today is\n${new Date().toLocaleDateString(undefined, options)}`
+          : `Selected: ${date}`}
       </p>
     </div>
   );

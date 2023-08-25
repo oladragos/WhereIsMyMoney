@@ -9,3 +9,9 @@
   /* height: calc(100vh - 4rem); */
   height: 100vh;
 }
+
+@media (max-width: 280px) {
+  .sidebar {
+    padding: 15px 0;
+  }
+}

@@ -28,15 +28,22 @@ export default function Calendar() {
           "&.MuiDateCalendar-root": {
             [muiTheme.breakpoints.down("xxs")]: {
               width: "95%",
-              height: "60%",
+              height: "61%",
+              maxHeight: "40rem",
             },
-            maxHeight: "35rem",
             backgroundColor: "var(--color-brand--3)",
             borderRadius: "5px",
-            // overflowY: { xs: "scroll" },
-            // overflowX: { xs: "scroll" },
+            overflowY: "scroll",
           },
-          "& .MuiPickersCalendarHeader-root": { mt: 3.1, mb: 3.8, ml: 1.3 },
+          "& .MuiPickersCalendarHeader-root": {
+            mt: 3.1,
+            mb: 3.8,
+            ml: 1.3,
+            [muiTheme.breakpoints.down("xxs")]: {
+              mt: 2,
+              mb: 2,
+            },
+          },
           "& .MuiPickersCalendarHeader-labelContainer": {
             color: "var(--color-dark--1)",
             fontSize: "1.3rem",
