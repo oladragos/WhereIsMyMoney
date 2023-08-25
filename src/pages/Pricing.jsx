@@ -45,7 +45,8 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   borderTop: "1px solid rgba(0, 0, 0, .125)",
 }));
 
-export default function Product() {
+export default function Pricing() {
+  //eslint-disable-next-line
   const [expanded, setExpanded] = useState("");
 
   const handleChange = (panel) => (event, newExpanded) => {
@@ -71,7 +72,7 @@ export default function Product() {
 
             <div>
               <Accordion
-                expanded={expanded === "panel1"}
+                // expanded={expanded === "panel1"}
                 onChange={handleChange("panel1")}
               >
                 <AccordionSummary
@@ -89,7 +90,7 @@ export default function Product() {
                 </AccordionDetails>
               </Accordion>
               <Accordion
-                expanded={expanded === "panel2"}
+                // expanded={expanded === "panel2"}
                 onChange={handleChange("panel2")}
               >
                 <AccordionSummary
@@ -106,7 +107,7 @@ export default function Product() {
                 </AccordionDetails>
               </Accordion>
               <Accordion
-                expanded={expanded === "panel3"}
+                // expanded={expanded === "panel3"}
                 onChange={handleChange("panel3")}
               >
                 <AccordionSummary

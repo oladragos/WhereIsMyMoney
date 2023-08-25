@@ -8,6 +8,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import Day from "../DayItem/DayItem";
 import { useDispatch } from "react-redux";
 import { storeStats } from "../../features/stats";
+import { muiTheme } from "../../utils/muiTheme";
 
 dayjs.extend(isBetweenPlugin);
 
@@ -25,19 +26,24 @@ export default function Calendar() {
       <DateCalendar
         sx={{
           "&.MuiDateCalendar-root": {
-            width: "90%",
-            height: "65%",
+            [muiTheme.breakpoints.down("xxs")]: {
+              width: "95%",
+              height: "60%",
+            },
             maxHeight: "35rem",
             backgroundColor: "var(--color-brand--3)",
             borderRadius: "5px",
-            overflowY: { xs: "scroll" },
-            overflowX: { xs: "scroll" },
+            // overflowY: { xs: "scroll" },
+            // overflowX: { xs: "scroll" },
           },
           "& .MuiPickersCalendarHeader-root": { mt: 3.1, mb: 3.8, ml: 1.3 },
           "& .MuiPickersCalendarHeader-labelContainer": {
             color: "var(--color-dark--1)",
             fontSize: "1.3rem",
             fontWeight: "600",
+            [muiTheme.breakpoints.down("xxs")]: {
+              fontSize: "1rem",
+            },
           },
           //! .MuiPickersMonth-monthButton this one was also on the next obj
           "& .MuiYearCalendar-root": {
@@ -60,12 +66,22 @@ export default function Calendar() {
             color: "rgb(128, 17, 17)",
             fontSize: "1.3rem",
             fontWeight: "700",
+            [muiTheme.breakpoints.down("xxs")]: {
+              fontSize: "1rem",
+            },
           },
           "& .MuiPickersDay-root": {
-            width: { xs: "65px", sm: "65px" },
-            height: "60px",
+            [muiTheme.breakpoints.up("sm")]: { width: "65px" },
+            [muiTheme.breakpoints.down("sm")]: { width: "65px" },
+            [muiTheme.breakpoints.down("sm1")]: { width: "63px" },
+            [muiTheme.breakpoints.down("sm2")]: { width: "61px" },
+            [muiTheme.breakpoints.down("xxs")]: {
+              width: "32px",
+              height: "40px",
+              fontSize: "1rem",
+              fontWeight: 600,
+            },
             fontSize: "1.3rem",
-            color: "var(--color-dark--1)",
           },
           "& .MuiPickersDay-root:hover": {
             backgroundColor: "var(--color-hover--2)",

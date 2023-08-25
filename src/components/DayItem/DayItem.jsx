@@ -3,6 +3,7 @@ import { PickersDay } from "@mui/x-date-pickers/PickersDay";
 import dayjs from "dayjs";
 import isBetweenPlugin from "dayjs/plugin/isBetween";
 import { Link } from "react-router-dom";
+import { muiTheme } from "../../utils/muiTheme";
 
 dayjs.extend(isBetweenPlugin);
 
@@ -14,11 +15,19 @@ const CustomPickersDay = styled(PickersDay, {
   ...(dayIsBetween && {
     borderRadius: 0,
     backgroundColor: "var(--color-hover--1)",
-    color: "var( --color-dark--0)",
+    // color: "var(--color-dark--0)",
     "&:hover, &:focus": {
       backgroundColor: theme.palette.primary.dark,
     },
-    width: "69px !important",
+    [muiTheme.breakpoints.up("sm")]: { width: "69px !important" },
+    [muiTheme.breakpoints.down("sm")]: { width: "69px !important" },
+    [muiTheme.breakpoints.down("sm1")]: { width: "67px !important" },
+    [muiTheme.breakpoints.down("sm2")]: { width: "65px !important" },
+    [muiTheme.breakpoints.down("xxs")]: {
+      width: "0 !important",
+      height: "40px !important",
+      padding: "18px !important",
+    },
   }),
   ...(isFirstDay && {
     borderTopLeftRadius: "30%",

@@ -45,6 +45,11 @@ label {
   font-weight: 600;
 }
 
+@media (max-width: 370px) {
+  label {
+    font-size: 1rem;
+  }
+}
 textarea {
   resize: none;
   min-height: 100px;
@@ -93,6 +98,6 @@ input:focus {
 
 /* Calendar MUI component in app */
 
-/* .MuiPickersSlideTransition-root {
+.MuiPickersSlideTransition-root {
   overflow-x: visible !important;
-} */
+}

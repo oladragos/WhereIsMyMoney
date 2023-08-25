@@ -3,6 +3,7 @@ import ExpensesCategories from "./ExpensesCategories/ExpensesCategories";
 import DateDisplay from "./DateDisplay/DateDisplay";
 import { useSelector } from "react-redux";
 import StatsContainer from "../StatsContainer/StatsContainer";
+import Footer from "../Footer/Footer";
 
 export default function ExpensesContainer({ expenseAdded }) {
   const isStats = useSelector((store) => store.stats.value.isStats);
@@ -15,6 +16,7 @@ export default function ExpensesContainer({ expenseAdded }) {
         <>
           <DateDisplay />
           <ExpensesCategories expenseAdded={expenseAdded} />
+          <Footer />
         </>
       )}
     </div>

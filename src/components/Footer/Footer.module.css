@@ -1,8 +1,11 @@
 .footer {
-  margin-top: auto;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 
 .copyright {
   font-size: 0.8rem;
   color: var(--color-light--1);
+  margin-right: 3px;
 }

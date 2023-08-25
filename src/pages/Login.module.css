@@ -55,7 +55,13 @@
   color: var(--color-light--2);
   text-decoration: none;
   cursor: pointer;
-  font-size: 2vh;
+  font-size: 1rem;
+}
+
+@media (max-width: 370px) {
+  .signupLink {
+    font-size: 0.75rem;
+  }
 }
 
 .loginFooter {

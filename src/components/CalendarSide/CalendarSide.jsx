@@ -1,7 +1,6 @@
 import styles from "./CalendarSide.module.css";
 import Logo from "../Logo/Logo";
 import AppNav from "../AppNav/AppNav";
-import Footer from "../Footer/Footer";
 import { Outlet } from "react-router-dom";
 
 export default function CalendarSide() {
@@ -11,8 +10,6 @@ export default function CalendarSide() {
       <AppNav />
 
       <Outlet />
-
-      <Footer />
     </div>
   );
 }
