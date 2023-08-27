@@ -26,17 +26,17 @@ export default function Calendar() {
       <DateCalendar
         sx={{
           "&.MuiDateCalendar-root": {
-            [muiTheme.breakpoints.down("xxs")]: {
+            [muiTheme.breakpoints.down("510")]: {
               width: "95%",
-              height: "61%",
-              maxHeight: "40rem",
             },
-            [muiTheme.breakpoints.up("sm")]: {
-              width: "32rem",
-              height: "60%",
-              maxHeight: "40rem",
+            [muiTheme.breakpoints.down("300")]: {
+              minHeight: "360px",
             },
-            overflowY: "scroll",
+            [muiTheme.breakpoints.up("510")]: {
+              width: "31rem",
+            },
+
+            minHeight: "515px",
             backgroundColor: "var(--color-brand--3)",
             borderRadius: "5px",
           },
@@ -44,7 +44,7 @@ export default function Calendar() {
             mt: 3.1,
             mb: 3.8,
             ml: 1.3,
-            [muiTheme.breakpoints.down("xxs")]: {
+            [muiTheme.breakpoints.down("290")]: {
               mt: 2,
               mb: 2,
             },
@@ -53,7 +53,7 @@ export default function Calendar() {
             color: "var(--color-dark--1)",
             fontSize: "1.3rem",
             fontWeight: "600",
-            [muiTheme.breakpoints.down("xxs")]: {
+            [muiTheme.breakpoints.down("310")]: {
               fontSize: "1rem",
             },
           },
@@ -78,25 +78,39 @@ export default function Calendar() {
             color: "rgb(128, 17, 17)",
             fontSize: "1.3rem",
             fontWeight: "700",
-            [muiTheme.breakpoints.down("xxs")]: {
+            [muiTheme.breakpoints.down("290")]: {
               fontSize: "1rem",
             },
           },
           "& .MuiPickersDay-root": {
             [muiTheme.breakpoints.up("sm")]: {
               width: "65px",
-              height: "60px",
             },
-            [muiTheme.breakpoints.down("sm")]: { width: "65px" },
-            [muiTheme.breakpoints.down("sm1")]: { width: "63px" },
-            [muiTheme.breakpoints.down("sm2")]: { width: "61px" },
-            [muiTheme.breakpoints.down("xxs")]: {
-              width: "32px",
+            [muiTheme.breakpoints.up("510")]: { width: "65px" },
+            [muiTheme.breakpoints.down("510")]: { width: "65px" },
+            [muiTheme.breakpoints.down("490")]: { width: "63px" },
+            [muiTheme.breakpoints.down("475")]: { width: "61px" },
+            [muiTheme.breakpoints.down("450")]: { width: "57px" },
+            [muiTheme.breakpoints.down("435")]: { width: "55px" },
+            [muiTheme.breakpoints.down("410")]: { width: "52px" },
+            [muiTheme.breakpoints.down("390")]: { width: "49px" },
+            [muiTheme.breakpoints.down("370")]: { width: "46px" },
+            [muiTheme.breakpoints.down("350")]: { width: "43px" },
+            [muiTheme.breakpoints.down("330")]: { width: "40px" },
+            [muiTheme.breakpoints.down("310")]: { width: "37px" },
+            [muiTheme.breakpoints.down("300")]: {
+              width: "37px",
+              fontSize: "1.1rem",
+              fontWeight: 600,
               height: "40px",
+            },
+            [muiTheme.breakpoints.down("290")]: {
+              width: "32px",
               fontSize: "1rem",
               fontWeight: 600,
             },
             fontSize: "1.3rem",
+            height: "60px",
           },
           "& .MuiPickersDay-root:hover": {
             backgroundColor: "var(--color-hover--2)",
@@ -106,6 +120,10 @@ export default function Calendar() {
             {
               backgroundColor: "var(--color-selected--1)",
             },
+
+          "& .Mui-selected": {
+            backgroundColor: "var(--color-selected--1) !important",
+          },
         }}
         showDaysOutsideCurrentMonth
         fixedWeekNumber={6}

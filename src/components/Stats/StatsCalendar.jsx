@@ -10,6 +10,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
 
 import { useParams } from "react-router-dom";
+import { muiTheme } from "../../utils/muiTheme";
 
 export default function StatsCalendar() {
   const { timestamp } = useParams();
@@ -51,6 +52,9 @@ export default function StatsCalendar() {
             color: "var(--color-dark--1)",
             fontSize: "1.3rem",
             fontWeight: "600",
+            [muiTheme.breakpoints.down("310")]: {
+              fontSize: "1rem",
+            },
           },
           //! .MuiPickersMonth-monthButton this one was also on the next obj
           "& .MuiYearCalendar-root": {
@@ -87,11 +91,6 @@ export default function StatsCalendar() {
           "& .MuiPickersDay-root:hover": {
             backgroundColor: "var(--color-hover--2)",
           },
-
-          "& .MuiButtonBase-root.MuiPickersDay-root.Mui-selected, & .Mui-selected":
-            {
-              backgroundColor: "var(--color-selected--1)",
-            },
         }}
       />
     </LocalizationProvider>

@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { collection, where, getDocs, query } from "firebase/firestore";
 import { db } from "../../firebase";
+import { muiTheme } from "../../utils/muiTheme";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -102,6 +103,10 @@ export default function StatsContainer() {
             color: "var(--bs-gray-800)",
             "& .MuiButtonBase-root": {
               fontSize: "1.3rem",
+              [muiTheme.breakpoints.down("290")]: {
+                fontSize: "1rem",
+                fontWeight: 600,
+              },
             },
           }}
         >

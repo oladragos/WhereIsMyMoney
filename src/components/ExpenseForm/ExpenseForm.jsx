@@ -141,7 +141,7 @@ export default function ExpenseForm({ expenseAdded, setExpanseAdded }) {
                   backgroundColor: "var(--color-light--3)",
                 },
                 "& .MuiOutlinedInput-root.MuiInputBase-sizeSmall": {
-                  [muiTheme.breakpoints.down("xxs")]: {
+                  [muiTheme.breakpoints.down("290")]: {
                     padding: "3px 6px 3px 6px",
                   },
                 },

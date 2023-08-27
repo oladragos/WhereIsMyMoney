@@ -93,7 +93,7 @@ export default function ExpensesCategories({ expenseAdded }) {
   return (
     <div className={styles.accordion}>
       {!timestamp ? (
-        <p>Select a day!</p>
+        <p className="ms-2">Select a day!</p>
       ) : (
         expensesCategories.map((expense) => {
           const { categoryName, categoryEmoji } = expense;

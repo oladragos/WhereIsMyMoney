@@ -19,14 +19,32 @@ const CustomPickersDay = styled(PickersDay, {
     "&:hover, &:focus": {
       backgroundColor: theme.palette.primary.dark,
     },
-    [muiTheme.breakpoints.up("sm")]: { width: "69px !important" },
-    [muiTheme.breakpoints.down("sm")]: { width: "69px !important" },
-    [muiTheme.breakpoints.down("sm1")]: { width: "67px !important" },
-    [muiTheme.breakpoints.down("sm2")]: { width: "65px !important" },
-    [muiTheme.breakpoints.down("xxs")]: {
-      width: "0 !important",
-      height: "40px !important",
-      padding: "18px !important",
+    [muiTheme.breakpoints.up("510")]: {
+      width: "70px !important",
+    },
+    [muiTheme.breakpoints.down("510")]: { width: "70px !important" },
+    [muiTheme.breakpoints.down("490")]: { width: "68px !important" },
+    [muiTheme.breakpoints.down("475")]: { width: "66px !important" },
+    [muiTheme.breakpoints.down("450")]: { width: "62px !important" },
+    [muiTheme.breakpoints.down("435")]: { width: "60px !important" },
+    [muiTheme.breakpoints.down("410")]: { width: "57px !important" },
+    [muiTheme.breakpoints.down("390")]: { width: "54px !important" },
+    [muiTheme.breakpoints.down("370")]: { width: "51px !important" },
+    [muiTheme.breakpoints.down("350")]: { width: "48px !important" },
+    [muiTheme.breakpoints.down("330")]: { width: "45px !important" },
+    [muiTheme.breakpoints.down("310")]: {
+      width: "37px !important",
+      padding: "18px",
+    },
+    [muiTheme.breakpoints.down("300")]: {
+      fontSize: "1.1rem",
+      fontWeight: 600,
+      height: "40px",
+    },
+    [muiTheme.breakpoints.down("290")]: {
+      width: "32px",
+      fontSize: "1rem",
+      fontWeight: 600,
     },
   }),
   ...(isFirstDay && {

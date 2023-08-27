@@ -12,7 +12,7 @@ export default function DateDisplay() {
 
   return (
     <div>
-      <p>
+      <p className="ms-2 mt-2">
         {date === "Invalid Date"
           ? `Today is\n${new Date().toLocaleDateString(undefined, options)}`
           : `Selected: ${date}`}
