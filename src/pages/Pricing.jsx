@@ -56,7 +56,7 @@ export default function Pricing() {
     <main className={styles.product}>
       <PageNavUpdated />
       <section>
-        <div className="row me-0">
+        <div className="row me-0 align-items-center">
           <div className="col-12 col-lg-6 pe-0 mb-4">
             <h2>
               Simple pricing.

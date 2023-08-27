@@ -31,9 +31,14 @@ export default function Calendar() {
               height: "61%",
               maxHeight: "40rem",
             },
+            [muiTheme.breakpoints.up("sm")]: {
+              width: "32rem",
+              height: "60%",
+              maxHeight: "40rem",
+            },
+            overflowY: "scroll",
             backgroundColor: "var(--color-brand--3)",
             borderRadius: "5px",
-            overflowY: "scroll",
           },
           "& .MuiPickersCalendarHeader-root": {
             mt: 3.1,
@@ -78,7 +83,10 @@ export default function Calendar() {
             },
           },
           "& .MuiPickersDay-root": {
-            [muiTheme.breakpoints.up("sm")]: { width: "65px" },
+            [muiTheme.breakpoints.up("sm")]: {
+              width: "65px",
+              height: "60px",
+            },
             [muiTheme.breakpoints.down("sm")]: { width: "65px" },
             [muiTheme.breakpoints.down("sm1")]: { width: "63px" },
             [muiTheme.breakpoints.down("sm2")]: { width: "61px" },
