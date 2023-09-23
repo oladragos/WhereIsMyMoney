@@ -1,11 +1,10 @@
-// import PageNav from "../components/PageNav/PageNav";
-import PageNavUpdated from "../components/PageNav/PageNavUpdated";
+import PageNav from "../components/PageNav/PageNav";
 import styles from "./Product.module.css";
 
 export default function Product() {
   return (
     <main className={styles.product}>
-      <PageNavUpdated />
+      <PageNav />
       <section>
         <div className="row me-0">
           <div className="col-12 col-lg-6 pe-0 mb-4">

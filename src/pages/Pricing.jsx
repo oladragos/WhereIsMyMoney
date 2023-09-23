@@ -1,5 +1,4 @@
-// import PageNav from "../components/PageNav/PageNav";
-import PageNavUpdated from "../components/PageNav/PageNavUpdated";
+import PageNav from "../components/PageNav/PageNav";
 import styles from "./Product.module.css";
 import { styled } from "@mui/material/styles";
 import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
@@ -54,7 +53,7 @@ export default function Pricing() {
   };
   return (
     <main className={styles.product}>
-      <PageNavUpdated />
+      <PageNav />
       <section>
         <div className="row me-0 align-items-center">
           <div className="col-12 col-lg-6 pe-0 mb-4">

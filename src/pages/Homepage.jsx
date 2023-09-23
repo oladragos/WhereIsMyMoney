@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-// import PageNav from "../components/PageNav/PageNav";
-import PageNavUpdated from "../components/PageNav/PageNavUpdated";
+import PageNav from "../components/PageNav/PageNav";
 import styles from "./Homepage.module.css";
 import { useSelector } from "react-redux";
 
@@ -8,7 +7,7 @@ export default function Homepage() {
   const user = useSelector((state) => state.user.value);
   return (
     <main className={styles.homepage}>
-      <PageNavUpdated />
+      <PageNav />
       <section>
         <h1>
           You spend money almost everyday. Everybody does.

@@ -10,22 +10,21 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-// import AdbIcon from "@mui/icons-material/Adb";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase";
 import { clearUser } from "../../features/user";
-import styles from "./PageNavUpdated.module.css";
+import styles from "./PageNav.module.css";
 import logo from "../../../public/logo.png";
 
 const pages = ["Product", "Pricing", "Contact"];
-// const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 export default function PageNavUpdated() {
   const user = useSelector((state) => state.user.value);
   const dispatch = useDispatch();
+
   const handleLogout = () => {
     signOut(auth)
       .then(() => {
@@ -97,6 +96,7 @@ export default function PageNavUpdated() {
             >
               <MenuIcon />
             </IconButton>
+
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
@@ -130,6 +130,7 @@ export default function PageNavUpdated() {
                   </NavLink>
                 </Typography>
               </MenuItem>
+
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">
@@ -148,6 +149,7 @@ export default function PageNavUpdated() {
               ))}
             </Menu>
           </Box>
+
           <NavLink to={"/"}>
             <Box
               component="img"
@@ -160,6 +162,7 @@ export default function PageNavUpdated() {
               src={logo}
             />
           </NavLink>
+
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <NavLink key={page} to={`/${page}`}>
@@ -185,7 +188,6 @@ export default function PageNavUpdated() {
                     mr={1}
                     sx={{
                       color: "var(--color-light--2)",
-                      fontSize: "1rem !important",
                     }}
                   >
                     Welcome, {user.email.split("@")[0]}
@@ -193,11 +195,16 @@ export default function PageNavUpdated() {
                   <Avatar alt="user icon" />
                 </IconButton>
               </Tooltip>
+
               <Menu
                 sx={{
                   mt: "45px",
                   "& .MuiMenu-paper": {
                     backgroundColor: "var(--color-dark--2)",
+                  },
+
+                  "& .MuiMenu-list": {
+                    p: 0,
                   },
                 }}
                 id="menu-appbar"
@@ -214,21 +221,18 @@ export default function PageNavUpdated() {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
-                <MenuItem onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">
-                    {" "}
-                    <NavLink
-                      style={{
-                        color: "var(--color-light--2)",
-                        textDecoration: "none",
-                      }}
-                      to="/"
-                      onClick={handleLogout}
-                    >
-                      Sign out
-                    </NavLink>
-                  </Typography>
-                </MenuItem>
+                <NavLink
+                  style={{
+                    color: "var(--color-light--2)",
+                    textDecoration: "none",
+                  }}
+                  to="/"
+                  onClick={handleLogout}
+                >
+                  <MenuItem onClick={handleCloseUserMenu}>
+                    <Typography textAlign="center">Sign out</Typography>
+                  </MenuItem>
+                </NavLink>
               </Menu>
             </Box>
           )}

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import styles from "./Login.module.css";
-// import PageNav from "../components/PageNav/PageNav";
-import PageNavUpdated from "../components/PageNav/PageNavUpdated";
+import PageNav from "../components/PageNav/PageNav";
 import { NavLink } from "react-router-dom";
 
 import { signInWithEmailAndPassword } from "firebase/auth";
@@ -26,7 +25,7 @@ export default function Login() {
 
   return (
     <main className={styles.login}>
-      <PageNavUpdated />
+      <PageNav />
       <form className={styles.form}>
         <div className={styles.row}>
           <label htmlFor="email">Email address</label>
