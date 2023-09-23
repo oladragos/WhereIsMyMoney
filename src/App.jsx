@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Calendar from "./components/Calendar/Calendar";
+import Contact from "./pages/Contact";
 import Product from "./pages/Product";
 import Pricing from "./pages/Pricing";
 import Homepage from "./pages/Homepage";
@@ -42,6 +43,7 @@ function App() {
         <Route path="product" element={<Product />} />
         <Route path="signup" element={<Signup />} />
         <Route path="login" element={<Login />} />
+        <Route path="contact" element={<Contact />} />
         <Route path="app" element={<AppLayout expenseAdded={expenseAdded} />}>
           <Route index element={<Calendar />} />
           <Route path="calendar" element={<Calendar />} />

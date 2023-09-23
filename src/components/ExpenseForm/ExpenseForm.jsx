@@ -16,7 +16,7 @@ export default function ExpenseForm({ expenseAdded, setExpanseAdded }) {
   const { timestamp } = useParams();
   const [category, setCategory] = useState("");
   const [expenseName, setExpenseName] = useState("");
-  const [price, setPrice] = useState(0);
+  const [price, setPrice] = useState("");
   const [currency, setCurrency] = useState(null);
   const [notes, setNotes] = useState("");
   const user = useSelector((state) => state.user.value);
@@ -50,6 +50,9 @@ export default function ExpenseForm({ expenseAdded, setExpanseAdded }) {
 
   const addExpense = async (e) => {
     e.preventDefault();
+
+    if (!category || !expenseName || !price || !currency) return;
+
     try {
       const docRef = await addDoc(collection(db, "expenses"), {
         expense: {
@@ -65,7 +68,7 @@ export default function ExpenseForm({ expenseAdded, setExpanseAdded }) {
       setExpanseAdded(!expenseAdded);
       setCategory("");
       setExpenseName("");
-      setPrice(0);
+      setPrice("");
       setNotes("");
       setCurrency(null);
       console.log("Document written with ID: ", docRef.id);
@@ -82,11 +85,11 @@ export default function ExpenseForm({ expenseAdded, setExpanseAdded }) {
     <form className={styles.form}>
       <div className={styles.row}>
         <label>Select a category</label>
-        {category === "" && (
+        {/* {category === "" && (
           <p className={styles.warningMessage}>
             Please select a category first!
           </p>
-        )}
+        )} */}
         <select onChange={(e) => setCategory(e.target.value)} value={category}>
           <option value="">...</option>
           {expensesCategories.map((expense) => (

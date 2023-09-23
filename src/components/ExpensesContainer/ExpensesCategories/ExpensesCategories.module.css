@@ -1,4 +1,9 @@
 .accordion {
   overflow-y: scroll;
-  max-height: 90%;
+  max-height: 80%;
+}
+
+.accordion::-webkit-scrollbar {
+  display: none;
+  scroll-behavior: smooth;
 }

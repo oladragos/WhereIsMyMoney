@@ -20,7 +20,7 @@ import { clearUser } from "../../features/user";
 import styles from "./PageNavUpdated.module.css";
 import logo from "../../../public/logo.png";
 
-const pages = ["Product", "Pricing"];
+const pages = ["Product", "Pricing", "Contact"];
 // const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 export default function PageNavUpdated() {
@@ -35,6 +35,8 @@ export default function PageNavUpdated() {
         console.log(error);
       });
   };
+
+  //! to be removed
   console.log(user);
 
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -83,6 +85,7 @@ export default function PageNavUpdated() {
               src={logo}
             />
           </NavLink>
+
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
