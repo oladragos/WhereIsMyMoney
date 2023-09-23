@@ -8,11 +8,7 @@ export default function Product() {
       <section>
         <div className="row me-0">
           <div className="col-12 col-lg-6 pe-0 mb-4">
-            <img
-              src="/src/assets/img-1.jpg"
-              className="img-fluid"
-              alt="growing savings"
-            />
+            <img src="img-1.jpg" className="img-fluid" alt="growing savings" />
           </div>
           <div className="col-12 col-lg-6 pe-0">
             <h2 style={{ textAlign: "right" }}>
