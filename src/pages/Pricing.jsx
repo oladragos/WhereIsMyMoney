@@ -126,9 +126,8 @@ export default function Pricing() {
             </div>
           </div>
           <div className="col-12 col-lg-6 pe-0">
-            {" "}
             <img
-              src="img-2.jpeg"
+              src="src/assets/img-2.jpeg"
               alt="money management picture"
               className="img-fluid"
             />
