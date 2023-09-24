@@ -154,6 +154,7 @@ export default function ExpensesCategories({ expenseAdded }) {
                         {filteredExpense.expense.notes}
                       </Typography>
                     </div>
+
                     <button
                       style={{
                         backgroundColor: "var(--color-logout--1)",
@@ -161,6 +162,8 @@ export default function ExpensesCategories({ expenseAdded }) {
                         borderRadius: "10px",
                         fontFamily: "inherit",
                         padding: "8px 15px",
+                        color: "var(--color-dark--0)",
+                        fontWeight: "500",
                       }}
                       onClick={() => handleDeleteDoc(filteredExpense.id)}
                     >
