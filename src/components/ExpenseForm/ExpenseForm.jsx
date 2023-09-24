@@ -101,9 +101,7 @@ export default function ExpenseForm({ expenseAdded, setExpanseAdded }) {
           onChange={(e) => setExpenseName(e.target.value)}
           placeholder="What did you buy?"
           value={expenseName}
-          // disabled={!category}
         />
-        {/* <span className={styles.flag}>{emoji}</span> */}
       </div>
 
       <div className={styles.priceContainer}>
@@ -114,7 +112,7 @@ export default function ExpenseForm({ expenseAdded, setExpanseAdded }) {
               type="Number"
               id="price"
               onChange={(e) => setPrice(e.target.value)}
-              placeholder="How much was it?"
+              placeholder="How much?"
               value={price}
             />
           </div>
@@ -147,10 +145,6 @@ export default function ExpenseForm({ expenseAdded, setExpanseAdded }) {
                     backgroundColor: "var(--color-light--3)",
                     padding: 0,
                   },
-                // "& + .MuiAutocomplete-popper .MuiAutocomplete-option[aria-selected ='true'].Mui-focused":
-                //   {
-                //     backgroundColor: "var(--color-light--3)",
-                //   },
 
                 "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
                   border: "1px solid var(--color-light--3)",
@@ -175,6 +169,7 @@ export default function ExpenseForm({ expenseAdded, setExpanseAdded }) {
           value={notes}
           id="notes"
           onChange={(e) => setNotes(e.target.value)}
+          placeholder="Insert notes here"
         />
       </div>
 

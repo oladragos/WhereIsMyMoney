@@ -43,12 +43,13 @@
   font-size: 1rem;
   font-weight: 600;
   border: none;
-  padding: 0.9rem 2rem;
+  padding: 0.9rem 1.5rem;
   border-radius: 5px;
   background-color: var(--color-brand--2);
   cursor: pointer;
   text-transform: uppercase;
   color: var(--color-dark--0);
+  margin-right: 10px;
 }
 
 .signupLink {
