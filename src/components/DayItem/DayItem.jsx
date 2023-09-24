@@ -60,10 +60,6 @@ const CustomPickersDay = styled(PickersDay, {
 //! DAY FUNCTION
 export default function Day(props) {
   const { day, selectedDay, "data-timestamp": dataTimestamp, ...other } = props;
-  //! eu
-  const handleClickOnDay = function () {
-    console.log(dataTimestamp);
-  };
 
   if (selectedDay == null) {
     return <PickersDay day={day} {...other} />;
@@ -85,7 +81,6 @@ export default function Day(props) {
         dayIsBetween={dayIsBetween}
         isFirstDay={isFirstDay}
         isLastDay={isLastDay}
-        onClick={handleClickOnDay}
       />
     </Link>
   );

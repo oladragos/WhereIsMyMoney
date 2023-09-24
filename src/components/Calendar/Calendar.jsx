@@ -1,4 +1,3 @@
-// import * as React from "react";
 import { useEffect, useState } from "react";
 import dayjs from "dayjs";
 import isBetweenPlugin from "dayjs/plugin/isBetween";
@@ -23,11 +22,6 @@ export default function Calendar() {
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
-      {/* .box::-webkit-scrollbar,
-.list::-webkit-scrollbar {
-  display: none;
-  scroll-behavior: smooth;
-} */}
       <DateCalendar
         sx={{
           "&.MuiDateCalendar-root": {
@@ -62,7 +56,6 @@ export default function Calendar() {
               fontSize: "1rem",
             },
           },
-          //! .MuiPickersMonth-monthButton this one was also on the next obj
           "& .MuiYearCalendar-root": {
             width: "100%",
             maxHeight: "400px",
