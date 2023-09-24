@@ -84,11 +84,6 @@ export default function ExpenseForm({ expenseAdded, setExpanseAdded }) {
     <form className={styles.form}>
       <div className={styles.row}>
         <label>Select a category</label>
-        {/* {category === "" && (
-          <p className={styles.warningMessage}>
-            Please select a category first!
-          </p>
-        )} */}
         <select onChange={(e) => setCategory(e.target.value)} value={category}>
           <option value="">...</option>
           {expensesCategories.map((expense) => (
@@ -106,7 +101,7 @@ export default function ExpenseForm({ expenseAdded, setExpanseAdded }) {
           onChange={(e) => setExpenseName(e.target.value)}
           placeholder="What did you buy?"
           value={expenseName}
-          disabled={!category}
+          // disabled={!category}
         />
         {/* <span className={styles.flag}>{emoji}</span> */}
       </div>
