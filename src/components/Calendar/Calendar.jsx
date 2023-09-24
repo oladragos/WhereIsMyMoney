@@ -23,6 +23,11 @@ export default function Calendar() {
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
+      {/* .box::-webkit-scrollbar,
+.list::-webkit-scrollbar {
+  display: none;
+  scroll-behavior: smooth;
+} */}
       <DateCalendar
         sx={{
           "&.MuiDateCalendar-root": {
@@ -59,8 +64,14 @@ export default function Calendar() {
           },
           //! .MuiPickersMonth-monthButton this one was also on the next obj
           "& .MuiYearCalendar-root": {
-            width: "96%",
+            width: "100%",
             maxHeight: "400px",
+          },
+
+          "& .MuiYearCalendar-root::-webkit-scrollbar": {
+            display: "none",
+            scrollBehavior: "smooth",
+            width: "0 !important",
           },
 
           "& .MuiPickersYear-root": {

@@ -2,20 +2,30 @@ import { useParams } from "react-router-dom";
 
 export default function DateDisplay() {
   const { timestamp } = useParams();
+  console.log(window.location.pathname);
   const options = {
-    year: "numeric",
-    month: "long",
     day: "numeric",
     weekday: "long",
+    month: "long",
+    year: "numeric",
   };
-  const date = new Date(+timestamp).toLocaleDateString(undefined, options);
+  const fullDate = new Date(+timestamp);
+
+  const monthYear = fullDate.toLocaleString("default", {
+    month: "long",
+    year: "numeric",
+  });
+
+  console.log(fullDate);
 
   return (
     <div>
       <p className="ms-2 mt-2">
-        {date === "Invalid Date"
-          ? `Today is\n${new Date().toLocaleDateString(undefined, options)}`
-          : `Selected: ${date}`}
+        {fullDate == "Invalid Date"
+          ? `Today is ${new Date().toLocaleDateString("default", options)}`
+          : window.location.pathname == `/app/calendar/${timestamp}`
+          ? `Selected: ${fullDate.toLocaleDateString("default", options)}`
+          : `Selected: ${monthYear}`}
       </p>
     </div>
   );

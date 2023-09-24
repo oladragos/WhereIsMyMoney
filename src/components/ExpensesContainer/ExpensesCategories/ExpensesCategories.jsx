@@ -5,7 +5,14 @@ import MuiAccordionSummary from "@mui/material/AccordionSummary";
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import { useEffect, useState } from "react";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  query,
+  where,
+  deleteDoc,
+  doc,
+} from "firebase/firestore";
 import { db } from "../../../firebase";
 import { useParams } from "react-router-dom";
 import { expensesCategories } from "../../../utils/expense";
@@ -50,16 +57,14 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 }));
 
 export default function ExpensesCategories({ expenseAdded }) {
-  // const [expanded, setExpanded] = useState("");
   const [expenses, setExpenses] = useState([]);
+  const [expenseDeleted, setExpenseDeleted] = useState(false);
 
   const user = useSelector((state) => state.user.value);
 
   const { timestamp } = useParams();
-  console.log(timestamp);
 
   const fetchPost = async () => {
-    console.log(user.uid);
     const expensesCollectionRef = collection(db, "expenses");
     const q = query(
       expensesCollectionRef,
@@ -85,11 +90,14 @@ export default function ExpensesCategories({ expenseAdded }) {
       fetchPost();
     } else setExpenses([]);
     // eslint-disable-next-line
-  }, [timestamp, expenseAdded, user]);
+  }, [timestamp, expenseAdded, user, expenseDeleted]);
 
-  // const handleChange = (panel) => (event, newExpanded) => {
-  //   setExpanded(newExpanded ? panel : false);
-  // };
+  const handleDeleteDoc = async (id) => {
+    const docRef = doc(db, "expenses", id);
+    await deleteDoc(docRef);
+    setExpenseDeleted(!expenseDeleted);
+  };
+
   return (
     <div className={styles.accordion}>
       {!timestamp ? (
@@ -100,7 +108,13 @@ export default function ExpensesCategories({ expenseAdded }) {
           return (
             <Accordion
               key={expense.categoryName}
-              // onChange={handleChange(categoryName)}
+              sx={{
+                "& .MuiAccordionDetails-root": {
+                  display: "flex",
+                  justifyContent: "space-between ",
+                  alignItems: "center",
+                },
+              }}
             >
               <AccordionSummary
                 aria-controls={`${categoryName}d-content`}
@@ -119,17 +133,39 @@ export default function ExpensesCategories({ expenseAdded }) {
                 )
                 .map((filteredExpense) => (
                   <AccordionDetails key={filteredExpense.id}>
-                    <Typography>
-                      {filteredExpense.expense.expenseName}{" "}
-                      {filteredExpense.expense.price}{" "}
-                      {filteredExpense.expense.currency.label}
-                      {filteredExpense.expense.currency.label !== "RON"
-                        ? ` ~${(
-                            filteredExpense.expense.price /
-                            filteredExpense.expense.currency.value
-                          ).toFixed(2)} RON`
-                        : ""}
-                    </Typography>
+                    <div>
+                      <Typography>
+                        {filteredExpense.expense.expenseName}
+                      </Typography>
+                      <Typography>
+                        {filteredExpense.expense.price}{" "}
+                        {filteredExpense.expense.currency.label}
+                        {filteredExpense.expense.currency.label !== "RON"
+                          ? ` ~${(
+                              filteredExpense.expense.price /
+                              filteredExpense.expense.currency.value
+                            ).toFixed(2)} RON`
+                          : ""}
+                      </Typography>
+                      <Typography
+                        sx={{ fontStyle: "italic", fontSize: "0.9rem" }}
+                      >
+                        {" "}
+                        {filteredExpense.expense.notes}
+                      </Typography>
+                    </div>
+                    <button
+                      style={{
+                        backgroundColor: "var(--color-logout--1)",
+                        border: "none",
+                        borderRadius: "10px",
+                        fontFamily: "inherit",
+                        padding: "8px 15px",
+                      }}
+                      onClick={() => handleDeleteDoc(filteredExpense.id)}
+                    >
+                      Delete
+                    </button>
                   </AccordionDetails>
                 ))}
             </Accordion>

@@ -36,9 +36,17 @@ export default function StatsCalendar() {
           color: "var(--bs-gray-900)",
 
           "&.MuiDateCalendar-root": {
-            width: "90%",
-            height: "65%",
-            maxHeight: "35rem",
+            [muiTheme.breakpoints.down("510")]: {
+              width: "95%",
+            },
+            [muiTheme.breakpoints.down("300")]: {
+              minHeight: "360px",
+            },
+            [muiTheme.breakpoints.up("510")]: {
+              width: "31rem",
+            },
+
+            minHeight: "515px",
             borderRadius: "5px",
           },
 
@@ -58,8 +66,14 @@ export default function StatsCalendar() {
           },
           //! .MuiPickersMonth-monthButton this one was also on the next obj
           "& .MuiYearCalendar-root": {
-            width: "96%",
+            width: "100%",
             maxHeight: "400px",
+          },
+
+          "& .MuiYearCalendar-root::-webkit-scrollbar": {
+            display: "none",
+            scrollBehavior: "smooth",
+            width: "0 !important",
           },
 
           "& .MuiPickersYear-root": {

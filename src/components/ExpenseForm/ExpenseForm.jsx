@@ -24,7 +24,6 @@ export default function ExpenseForm({ expenseAdded, setExpanseAdded }) {
   const [isLoading, setIsLoading] = useState(false);
   const [currencies, setCurrencies] = useState([]);
 
-  //* CURRENCY API
   useEffect(function () {
     async function fetchCurrencies() {
       try {

@@ -92,7 +92,7 @@ export default function StatsContainer() {
   return (
     <div>
       {!timestamp ? (
-        <p>Select a month!</p>
+        <p className="ms-2">Select a month!</p>
       ) : (
         <Box
           sx={{

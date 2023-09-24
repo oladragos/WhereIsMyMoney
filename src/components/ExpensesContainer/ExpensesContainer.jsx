@@ -11,7 +11,11 @@ export default function ExpensesContainer({ expenseAdded }) {
   return (
     <div className={`${styles.expensesContainer} col-12 col-lg-6`}>
       {isStats ? (
-        <StatsContainer />
+        <>
+          <DateDisplay />
+          <StatsContainer />
+          <Footer />
+        </>
       ) : (
         <>
           <DateDisplay />
