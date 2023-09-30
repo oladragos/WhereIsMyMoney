@@ -17,7 +17,7 @@ import { signOut } from "firebase/auth";
 import { auth } from "../../firebase";
 import { clearUser } from "../../features/user";
 import styles from "./PageNav.module.css";
-import logo from "../../../public/logo.png";
+import logo from "/logo.png";
 
 const pages = ["Product", "Pricing", "Contact"];
 

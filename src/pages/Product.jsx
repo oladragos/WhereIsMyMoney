@@ -10,10 +10,12 @@ export default function Product() {
           <div className="col-12 col-lg-6 pe-0 mb-4">
             <img src="img-1.jpg" className="img-fluid" alt="growing savings" />
           </div>
+
           <div className="col-12 col-lg-6 pe-0">
             <h2 style={{ textAlign: "right" }}>
               About <br /> Where Is My Money?
             </h2>
+
             <p style={{ textIndent: "50px", textAlign: "justify" }}>
               In a world where everyone wants to be financially independent, the
               wish only is definitely not enough. The process itself requires
@@ -21,6 +23,7 @@ export default function Product() {
               with a simple concept that many times becomes very hard in
               practice: saving up.
             </p>
+
             <p style={{ textIndent: "50px", textAlign: "justify" }}>
               But how can you put some money aside if you don&apos;t keep track
               of your expenses? For this matter alone Where Is My Money was

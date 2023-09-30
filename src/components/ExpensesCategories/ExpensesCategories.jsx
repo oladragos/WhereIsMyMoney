@@ -13,9 +13,9 @@ import {
   deleteDoc,
   doc,
 } from "firebase/firestore";
-import { db } from "../../../firebase";
+import { db } from "../../firebase";
 import { useParams } from "react-router-dom";
-import { expensesCategories } from "../../../utils/expense";
+import { expensesCategories } from "../../utils/expense";
 import styles from "./ExpensesCategories.module.css";
 import { useSelector } from "react-redux";
 
@@ -77,7 +77,6 @@ export default function ExpensesCategories({ expenseAdded }) {
           ...doc.data(),
           id: doc.id,
         }));
-        console.log(newData);
         setExpenses(newData);
       })
       .catch((error) => {
@@ -95,6 +94,7 @@ export default function ExpensesCategories({ expenseAdded }) {
   const handleDeleteDoc = async (id) => {
     const docRef = doc(db, "expenses", id);
     await deleteDoc(docRef);
+
     setExpenseDeleted(!expenseDeleted);
   };
 

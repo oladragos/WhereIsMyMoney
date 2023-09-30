@@ -2,7 +2,6 @@ import { useParams } from "react-router-dom";
 
 export default function DateDisplay() {
   const { timestamp } = useParams();
-  console.log(window.location.pathname);
   const options = {
     day: "numeric",
     weekday: "long",
@@ -15,8 +14,6 @@ export default function DateDisplay() {
     month: "long",
     year: "numeric",
   });
-
-  console.log(fullDate);
 
   return (
     <div>

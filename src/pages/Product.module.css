@@ -1,9 +1,13 @@
 .product {
-  /* margin: 2rem; */
   padding: 2rem 3.5rem;
   background-color: var(--color-dark--1);
   min-height: 100vh;
   color: var(--color-light--2);
+}
+
+::-webkit-scrollbar {
+  display: none;
+  scroll-behavior: smooth;
 }
 
 @media (max-width: 500px) {

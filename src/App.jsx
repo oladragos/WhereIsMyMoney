@@ -27,8 +27,6 @@ function App() {
         uid: user.uid,
       };
       dispatch(storeUser(loggedUser));
-
-      console.log(user.uid);
     } else {
       console.log("User is logged out");
       dispatch(clearUser());

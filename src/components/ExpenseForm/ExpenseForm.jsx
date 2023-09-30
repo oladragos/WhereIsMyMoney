@@ -20,14 +20,11 @@ export default function ExpenseForm({ expenseAdded, setExpanseAdded }) {
   const [currency, setCurrency] = useState(null);
   const [notes, setNotes] = useState("");
   const user = useSelector((state) => state.user.value);
-  // eslint-disable-next-line
-  const [isLoading, setIsLoading] = useState(false);
   const [currencies, setCurrencies] = useState([]);
 
   useEffect(function () {
     async function fetchCurrencies() {
       try {
-        setIsLoading(true);
         const res = await fetch(`${BASE_URL}/ron.json`);
         const data = await res.json();
         console.log(data);
@@ -38,10 +35,8 @@ export default function ExpenseForm({ expenseAdded, setExpanseAdded }) {
           };
         });
         setCurrencies(dataArray);
-      } catch {
-        alert("There was an error loading data...");
-      } finally {
-        setIsLoading(false);
+      } catch (error) {
+        console.error("Error loading data:", error);
       }
     }
     fetchCurrencies();
@@ -71,8 +66,8 @@ export default function ExpenseForm({ expenseAdded, setExpanseAdded }) {
       setNotes("");
       setCurrency(null);
       console.log("Document written with ID: ", docRef.id);
-    } catch (e) {
-      console.error("Error adding document: ", e);
+    } catch (error) {
+      console.error("Error adding document: ", error);
     }
   };
 

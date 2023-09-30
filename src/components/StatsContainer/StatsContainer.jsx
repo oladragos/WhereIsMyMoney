@@ -58,10 +58,7 @@ export default function StatsContainer() {
 
   const { timestamp } = useParams();
 
-  console.log(timestamp);
-
   const fetchPost = async () => {
-    console.log(user.uid);
     const expensesCollectionRef = collection(db, "expenses");
     const q = query(
       expensesCollectionRef,
@@ -70,7 +67,6 @@ export default function StatsContainer() {
     await getDocs(q)
       .then((res) => {
         const newData = res.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-        console.log(newData);
         setExpenses(newData);
       })
       .catch((error) => {

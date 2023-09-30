@@ -1,14 +1,9 @@
 import { useEffect } from "react";
-
 import { useDispatch } from "react-redux";
 import { storeStats } from "../../features/stats";
-
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-
-// import { StaticDatePicker } from "@mui/x-date-pickers/StaticDatePicker";
 import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
-
 import { useParams } from "react-router-dom";
 import { muiTheme } from "../../utils/muiTheme";
 
@@ -64,7 +59,6 @@ export default function StatsCalendar() {
               fontSize: "1rem",
             },
           },
-          //! .MuiPickersMonth-monthButton this one was also on the next obj
           "& .MuiYearCalendar-root": {
             width: "100%",
             maxHeight: "400px",

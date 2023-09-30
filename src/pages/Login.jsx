@@ -9,7 +9,6 @@ import { auth } from "../firebase";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const login = (e) => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
@@ -20,6 +19,7 @@ export default function Login() {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
+        alert(errorMessage.replace("Firebase:", ""));
       });
   };
 
