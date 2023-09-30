@@ -9,6 +9,7 @@ import { auth } from "../firebase";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const login = (e) => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
@@ -34,7 +35,6 @@ export default function Login() {
             id="email"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
-            autoComplete="off"
             placeholder="Your email address"
           />
         </div>

@@ -12,8 +12,6 @@ export default function Signup({ user, setUser }) {
 
   const register = async (e) => {
     e.preventDefault();
-    console.log(email, password);
-
     await createUserWithEmailAndPassword(auth, email, password)
       .then(() => {
         window.location.href = window.location.origin;
@@ -22,6 +20,7 @@ export default function Signup({ user, setUser }) {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
+        alert(errorCode.replace("Firebase:", ""));
       });
   };
 

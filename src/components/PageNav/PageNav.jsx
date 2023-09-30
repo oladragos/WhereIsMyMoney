@@ -35,9 +35,6 @@ export default function PageNavUpdated() {
       });
   };
 
-  //! to be removed
-  console.log(user);
-
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
 

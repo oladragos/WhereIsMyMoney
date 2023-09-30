@@ -64,6 +64,7 @@ export default function StatsContainer() {
       expensesCollectionRef,
       where("expense.userID", "==", user.uid)
     );
+
     await getDocs(q)
       .then((res) => {
         const newData = res.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
