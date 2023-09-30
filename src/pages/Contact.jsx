@@ -6,7 +6,7 @@ import PageNav from "../components/PageNav/PageNav";
 export default function Contact() {
   const form = useRef();
 
-  const sendEmail = (e) => {
+  function sendEmail(e) {
     e.preventDefault();
 
     emailjs
@@ -23,9 +23,10 @@ export default function Contact() {
         },
         (error) => {
           console.log(error.text);
+          alert(error.text);
         }
       );
-  };
+  }
 
   return (
     <main className={styles.login}>
