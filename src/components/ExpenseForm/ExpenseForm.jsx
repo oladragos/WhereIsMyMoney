@@ -27,7 +27,6 @@ export default function ExpenseForm({ expenseAdded, setExpanseAdded }) {
       try {
         const res = await fetch(`${BASE_URL}/ron.json`);
         const data = await res.json();
-        console.log(data);
         const dataArray = Object.entries(data.ron).map(([currency, value]) => {
           return {
             label: currency.toUpperCase(),
