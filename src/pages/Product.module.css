@@ -1,13 +1,13 @@
+::-webkit-scrollbar {
+  display: none;
+  scroll-behavior: smooth;
+}
+
 .product {
   padding: 2rem 3.5rem;
   background-color: var(--color-dark--1);
   min-height: 100vh;
   color: var(--color-light--2);
-}
-
-::-webkit-scrollbar {
-  display: none;
-  scroll-behavior: smooth;
 }
 
 @media (max-width: 500px) {
@@ -23,20 +23,22 @@
 }
 
 .product h2 {
-  font-size: 2rem;
+  font-size: 35px;
+  font-weight: 400;
   line-height: 1.2;
   margin-bottom: 2rem;
 }
 
-.product p {
-  font-size: 1rem;
-}
-
 .description {
+  font-size: 21px;
+  font-weight: 300;
   margin-bottom: 2rem;
-  text-align: justify;
+  text-align: left;
+  text-indent: 50px;
 }
 
-.product section a {
-  margin-top: 2rem;
+@media (max-width: 300px) {
+  .description {
+    text-indent: 0;
+  }
 }

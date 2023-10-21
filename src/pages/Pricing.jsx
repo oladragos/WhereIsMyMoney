@@ -1,5 +1,5 @@
 import PageNav from "../components/PageNav/PageNav";
-import styles from "./Product.module.css";
+import styles from "./Pricing.module.css";
 import { styled } from "@mui/material/styles";
 import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
 import MuiAccordion from "@mui/material/Accordion";
@@ -45,23 +45,26 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 }));
 
 export default function Pricing() {
-  //eslint-disable-next-line
   const [expanded, setExpanded] = useState("");
 
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
   };
+
   return (
-    <main className={styles.product}>
+    <main className={styles.pricing}>
       <PageNav />
       <section>
-        <div className="row me-0 align-items-center">
-          <div className="col-12 col-lg-6 pe-0 mb-4">
+        <div className="d-flex align-items-center row me-0">
+          <div className="d-flex justify-content-start">
             <h2>
               Simple pricing.
               <br />
               Just $5/month.
             </h2>
+          </div>
+
+          <div className="col-12 col-lg-6 pe-0 mb-4">
             <p className={styles.description}>
               As the application grows it is only natural that the great effort
               of our developers should be repaid by the almost insignificant
@@ -69,9 +72,9 @@ export default function Pricing() {
             </p>
             <p className={styles.description}>In return you get:</p>
 
-            <div>
+            <div style={{ width: "95%" }}>
               <Accordion
-                // expanded={expanded === "panel1"}
+                expanded={expanded === "panel1"}
                 onChange={handleChange("panel1")}
               >
                 <AccordionSummary
@@ -89,7 +92,7 @@ export default function Pricing() {
                 </AccordionDetails>
               </Accordion>
               <Accordion
-                // expanded={expanded === "panel2"}
+                expanded={expanded === "panel2"}
                 onChange={handleChange("panel2")}
               >
                 <AccordionSummary
@@ -106,7 +109,7 @@ export default function Pricing() {
                 </AccordionDetails>
               </Accordion>
               <Accordion
-                // expanded={expanded === "panel3"}
+                expanded={expanded === "panel3"}
                 onChange={handleChange("panel3")}
               >
                 <AccordionSummary
@@ -125,10 +128,11 @@ export default function Pricing() {
               </Accordion>
             </div>
           </div>
-          <div className="col-12 col-lg-6 pe-0">
+
+          <div className="col-12 col-lg-6 pe-0 mb-4 d-flex justify-content-center">
             <img
-              src="img-2.jpeg"
-              alt="money management picture"
+              src="img-2.jpg"
+              alt="money-growth-picture"
               className="img-fluid"
             />
           </div>
