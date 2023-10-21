@@ -76,6 +76,7 @@ export default function Pricing() {
               <Accordion
                 expanded={expanded === "panel1"}
                 onChange={handleChange("panel1")}
+                sx={{ backgroundColor: "var(--color-light--3)" }}
               >
                 <AccordionSummary
                   aria-controls="panel1d-content"
@@ -83,7 +84,9 @@ export default function Pricing() {
                 >
                   <Typography>Unlimited Expense Tracking</Typography>
                 </AccordionSummary>
-                <AccordionDetails>
+                <AccordionDetails
+                  sx={{ backgroundColor: "var(--color-light--2)" }}
+                >
                   <Typography>
                     Remove any limitations on the number of expenses you can
                     track, ensuring you can manage all your financial activities
@@ -94,6 +97,7 @@ export default function Pricing() {
               <Accordion
                 expanded={expanded === "panel2"}
                 onChange={handleChange("panel2")}
+                sx={{ backgroundColor: "var(--color-light--3)" }}
               >
                 <AccordionSummary
                   aria-controls="panel2d-content"
@@ -101,7 +105,9 @@ export default function Pricing() {
                 >
                   <Typography>Priority Customer Support</Typography>
                 </AccordionSummary>
-                <AccordionDetails>
+                <AccordionDetails
+                  sx={{ backgroundColor: "var(--color-light--2)" }}
+                >
                   <Typography>
                     Gain access to priority customer support, ensuring that your
                     inquiries and issues are addressed promptly.
@@ -111,6 +117,7 @@ export default function Pricing() {
               <Accordion
                 expanded={expanded === "panel3"}
                 onChange={handleChange("panel3")}
+                sx={{ backgroundColor: "var(--color-light--3)" }}
               >
                 <AccordionSummary
                   aria-controls="panel3d-content"
@@ -118,7 +125,9 @@ export default function Pricing() {
                 >
                   <Typography>Enhanced Security</Typography>
                 </AccordionSummary>
-                <AccordionDetails>
+                <AccordionDetails
+                  sx={{ backgroundColor: "var(--color-light--2)" }}
+                >
                   <Typography>
                     Get an extra layer of security with advanced encryption and
                     data protection features to keep your financial information
