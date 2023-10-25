@@ -22,8 +22,6 @@ export default function StatsCalendar() {
         views={["year", "month"]}
         openTo="year"
         onMonthChange={(month) => {
-          console.log(typeof month);
-          console.log(month.valueOf());
           window.location.href = "/app/stats/" + month.valueOf();
         }}
         sx={{
