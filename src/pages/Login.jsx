@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "./Login.module.css";
 import PageNav from "../components/PageNav/PageNav";
 import { NavLink } from "react-router-dom";
+import SnackbarComponent from "../components/SnackbarComponent/SnackbarComponent";
 
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
@@ -9,6 +10,7 @@ import { auth } from "../firebase";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState(null);
 
   const login = (e) => {
     e.preventDefault();
@@ -17,15 +19,14 @@ export default function Login() {
         window.location.href = "/app/calendar";
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
-        alert(errorMessage.replace("Firebase:", ""));
-      });
+        setErrorMessage(error.message);
+      })
+      .finally(setErrorMessage(""));
   };
 
   return (
     <main className={styles.login}>
+      {errorMessage && <SnackbarComponent message={errorMessage} />}
       <PageNav />
       <form className={styles.form}>
         <div className={styles.row}>
@@ -38,7 +39,6 @@ export default function Login() {
             placeholder="Your email address"
           />
         </div>
-
         <div className={styles.row}>
           <label htmlFor="password">Password</label>
           <input
@@ -50,7 +50,6 @@ export default function Login() {
             placeholder="Your password"
           />
         </div>
-
         <div className={styles.loginFooter}>
           <NavLink className={styles.signupLink} to="/signup">
             Don&apos;t have an account? Create one here!
